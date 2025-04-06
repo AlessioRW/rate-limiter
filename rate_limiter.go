@@ -43,6 +43,7 @@ func MakeRateLimiter(expireTime time.Duration, limit int) func(string) bool {
 	return newCache.rateLimit
 }
 
+// change this to run on individual origins when api call is made
 func (c *Cache) newCleaner(interval float64) {
 	for range time.Tick(time.Second * time.Duration(interval)) {
 		c.cleanCache()
