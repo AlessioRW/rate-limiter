@@ -1,9 +1,8 @@
-package main
+package ratelimiter
 
 import (
 	"fmt"
 	"net/http"
-	ratelimiter "thing/rate-limiter/rate_limiter"
 	"time"
 
 	"github.com/gorilla/mux"
@@ -11,7 +10,7 @@ import (
 
 // test the rate limiter
 func main() {
-	RateLimit := ratelimiter.MakeRateLimiter(time.Minute*2, 5)
+	RateLimit := MakeRateLimiter(time.Minute*2, 5)
 	_ = RateLimit
 
 	r := mux.NewRouter()
